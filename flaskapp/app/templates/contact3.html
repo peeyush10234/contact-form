@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h3>Additional Information</h3>
+  <form action="{{ url_for('contact3') }}" method=post>
+    {{form.message.label}}
+    {{form.message}}
+    
+    {{ form.submit }}
+  </form>
+
+{% endblock %}

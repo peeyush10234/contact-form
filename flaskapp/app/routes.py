@@ -1,17 +1,14 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash,redirect,url_for
 from forms import ContactForm
+from forms1 import ContactForm1
+from forms2 import ContactForm2
+from forms3 import ContactForm3
+
 from flask.ext.mail import Message, Mail
+app = Flask(__name__) 
  
-mail = Mail()
-app = Flask(__name__)
-app.secret_key = 'development key'  
-app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 465
-app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = 'tanejapeeyush@gmail.com'
-app.config["MAIL_PASSWORD"] = 'peeyush10'
- 
-mail.init_app(app)
+app.secret_key = 'development key'
+
 
 @app.route('/')
 def home():
@@ -26,21 +23,43 @@ def contact():
   form = ContactForm()
  
   if request.method == 'POST':
-    if form.validate() == False:
-      flash('All fields are required.')
-      return render_template('contact.html', form=form)
-    else:
-      msg = Message(form.subject.data, sender='contact@example.com', recipients=['your_email@example.com'])
-      msg.body = """
-      From: %s <%s>
-      %s
-      """ % (form.name.data, form.email.data, form.message.data)
-      mail.send(msg)
- 
-      return 'Form posted.'
- 
+    return redirect(url_for('contact1'))
+
   elif request.method == 'GET':
     return render_template('contact.html', form=form)
-  
+
+@app.route('/contact1', methods=['GET', 'POST'])
+def contact1():
+  form = ContactForm1()
+ 
+  if request.method == 'POST':
+     return redirect(url_for('contact2'))
+
+  elif request.method == 'GET':
+    return render_template('contact1.html', form=form)
+
+@app.route('/contact2', methods=['GET', 'POST'])
+def contact2():
+  form = ContactForm2()
+ 
+  if request.method == 'POST':
+     return redirect(url_for('contact3'))
+
+
+  elif request.method == 'GET':
+    return render_template('contact2.html', form=form)
+
+@app.route('/contact3', methods=['GET', 'POST'])
+def contact3():
+  form = ContactForm3()
+ 
+  if request.method == 'POST':
+     return "form posted"
+
+
+  elif request.method == 'GET':
+    return render_template('contact3.html', form=form)    
+
+      
 if __name__ == '__main__':
   app.run(debug=True)

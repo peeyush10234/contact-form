@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h3>Work experience</h3>
+  <form action="{{ url_for('contact1') }}" method=post>
+    
+ 
+    {{ form.empname.label }}
+    {{ form.empname }}
+
+    {{ form.city1.label }}
+    {{ form.city1 }}
+
+    {{ form.state1.label }}
+    {{ form.state1 }}
+
+    {{ form.country1.label }}
+    {{ form.country1 }}
+
+    <h3>Position Information</h3>
+
+    {{ form.postitle.label }}
+    {{ form.postitle }}
+
+    {{ form.startdate.label }}
+    {{ form.startdate }}
+
+    {{ form.enddate.label }}
+    {{ form.enddate }}
+     <br>
+    {{ form.submit }}
+  </form>
+
+{% endblock %}

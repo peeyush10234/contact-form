@@ -58,9 +58,9 @@ h3 {
   font-size: 1.7em;
   font-weight: 100;
   margin-top: 30px;
-  text-align: center;
+  text-align: left;
   letter-spacing: -1px;
-  color: #999;
+  color: #bbbbbb;
 }
 .menu {
   float: right;
@@ -87,11 +87,31 @@ form label {
   padding: 10px 0;
 }
  
-form input#name,
+form input#firstname,
+form input#lastname,
+form input#country,
+form input#address1,
+form input#address2,
+form input#city,
+form input#state,
+form input#zipcode,
+form input#phone,
 form input#email,
-form input#subject {
-  width: 400px;
-  background-color: #fafafa;
+form input#empname,
+form input#city1,
+form input#state1,
+form input#country1,
+form input#postitle,
+form input#startdate,
+form input#enddate,
+form input#colname,
+form input#city2,
+form input#state2,
+form input#country2,
+form input#degree,
+form input#submit{
+  width: 300px;
+  background-color: #cccccc;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;

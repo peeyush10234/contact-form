@@ -1,46 +1,41 @@
 {% extends "layout.html" %}
  
 {% block content %}
-  <h2>Contact</h2>
- 
-  {% if success %}
-    <p>Thank you for your message. We'll get back to you shortly.</p>
- 
-  {% else %}
- 
-    {% for message in form.name.errors %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
- 
-    {% for message in form.email.errors %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
- 
-    {% for message in form.subject.errors %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
- 
-    {% for message in form.message.errors %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
- 
-    <form action="{{ url_for('contact') }}" method=post>
+  <h3>Personal Information</h3>
+  <form action="{{ url_for('contact') }}" method=post>
     
  
-      {{ form.name.label }}
-      {{ form.name }}
- 
-      {{ form.email.label }}
-      {{ form.email }}
- 
-      {{ form.subject.label }}
-      {{ form.subject }}
- 
-      {{ form.message.label }}
-      {{ form.message }}
- 
-      {{ form.submit }}
-    </form>
- 
-  {% endif %}
+    {{ form.firstname.label }}
+    {{ form.firstname }}
+
+    {{ form.lastname.label }}
+    {{ form.lastname }}
+
+    {{ form.country.label }}
+    {{ form.country }}
+
+    {{ form.address1.label }}
+    {{ form.address1 }}
+
+    {{ form.address2.label }}
+    {{ form.address2 }}
+
+    {{ form.city.label }}
+    {{ form.city }}
+
+    {{ form.state.label }}
+    {{ form.state }}
+
+    {{ form.zipcode.label }}
+    {{ form.zipcode }}
+
+    {{ form.phone.label }}
+    {{ form.phone }}
+
+    {{ form.email.label }}
+    {{ form.email }}
+     <br>
+    {{ form.submit }}
+  </form>
+
 {% endblock %}

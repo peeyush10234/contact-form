@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h3>Education</h3>
+  <form action="{{ url_for('contact2') }}" method=post>
+    
+ 
+    {{ form.colname.label }}
+    {{ form.colname }}
+
+    {{ form.city2.label }}
+    {{ form.city2 }}
+
+    {{ form.state2.label }}
+    {{ form.state2 }}
+
+    {{ form.country2.label }}
+    {{ form.country2 }}
+
+    {{ form.degree.label }}
+    {{ form.degree }}
+    
+    {{ form.submit }}
+  </form>
+
+{% endblock %}
